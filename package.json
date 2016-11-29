@@ -58,6 +58,7 @@
     "react-addons-test-utils": "^15.3.2",
     "sinon": "^1.17.6",
     "socket.io": "^1.5.1",
+    "socket.io-client": "^1.7.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
   }
