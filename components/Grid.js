@@ -1,25 +1,29 @@
 import React from 'react';
-import _ from 'lodash';
 
 class Grid extends React.Component {
-  constructor() {
-    super();
-  }
   handleClick() {
     let turnCount = this.props.playerTurnCount;
-    turnCount++;
+    turnCount += 1;
     this.props.onClickHandler(this.props.coordinate, turnCount);
   }
   render() {
-    return(
+    return (
       <div className="grid-space">
-        <div className={this.props.omokPiece} id={this.props.coordinate} onClick={() => this.handleClick()}>
-        </div>
-        <div className="cross">
-        </div>
+        <div
+          className={this.props.omokPiece}
+          id={this.props.coordinate}
+          onClick={() => this.handleClick()}
+        />
+        <div className="cross" />
       </div>
     )
   }
 }
 
+Grid.propTypes = {
+  onClickHandler: React.PropTypes.func.isRequired,
+  playerTurnCount: React.PropTypes.number.isRequired,
+  coordinate: React.PropTypes.arrayOf(React.PropTypes.number),
+  omokPiece: React.PropTypes.string.isRequired,
+};
 module.exports = Grid;

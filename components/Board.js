@@ -67,7 +67,7 @@ class Board extends React.Component {
   changeCoordinateState(data) {
     data.length = 5;
     data.board = this.state.board;
-    let nextPlayerPiece = this.state.piecePlayed > 1 ? 1 : 2;
+    const nextPlayerPiece = this.state.piecePlayed > 1 ? 1 : 2;
     data.board[data.x][data.y] = data.piecePlayed;
     if (data.turnCount >= 9 && checkVictoryCondition(data)) {
       this.setState({
@@ -88,14 +88,12 @@ class Board extends React.Component {
     const rows = this.state.board.map((value, key) =>
       value.map((innerValue, innerKey) => {
         const coordinate = [key, innerKey];
-        let omokPiece = 'grid'
+        let omokPiece = 'grid';
         if (innerValue > 1) {
           omokPiece = 'player-two';
-        }
-        else if (innerValue === 0){
+        } else if (innerValue === 0) {
           omokPiece = 'grid';
-        }
-        else {
+        } else {
           omokPiece = 'player-one';
         }
         return (
